@@ -236,18 +236,18 @@ void cea708_dump(cea708_t* cea708)
 {
     int i;
 
-    fprintf(stderr, "itu_t_t35_country_code_t %d\n", cea708->country);
-    fprintf(stderr, "itu_t_t35_provider_code_t %d\n", cea708->provider);
-    fprintf(stderr, "user_identifier %c%c%c%c\n",
+    // fprintf(stderr, "itu_t_t35_country_code_t %d\n", cea708->country);
+    // fprintf(stderr, "itu_t_t35_provider_code_t %d\n", cea708->provider);
+    // fprintf(stderr, "user_identifier %c%c%c%c\n",
         (cea708->user_identifier >> 24) & 0xFF, (cea708->user_identifier >> 16) & 0xFF,
         (cea708->user_identifier >> 8) & 0xFF, cea708->user_identifier & 0xFF);
-    fprintf(stderr, "user_data_type_code %d\n", cea708->user_data_type_code);
-    fprintf(stderr, "directv_user_data_length %d\n", cea708->directv_user_data_length);
-    fprintf(stderr, "user_data.process_em_data_flag %d\n", cea708->user_data.process_em_data_flag);
-    fprintf(stderr, "user_data.process_cc_data_flag %d\n", cea708->user_data.process_cc_data_flag);
-    fprintf(stderr, "user_data.additional_data_flag %d\n", cea708->user_data.additional_data_flag);
-    fprintf(stderr, "user_data.cc_count %d\n", cea708->user_data.cc_count);
-    fprintf(stderr, "user_data.em_data %d\n", cea708->user_data.em_data);
+    // fprintf(stderr, "user_data_type_code %d\n", cea708->user_data_type_code);
+    // fprintf(stderr, "directv_user_data_length %d\n", cea708->directv_user_data_length);
+    // fprintf(stderr, "user_data.process_em_data_flag %d\n", cea708->user_data.process_em_data_flag);
+    // fprintf(stderr, "user_data.process_cc_data_flag %d\n", cea708->user_data.process_cc_data_flag);
+    // fprintf(stderr, "user_data.additional_data_flag %d\n", cea708->user_data.additional_data_flag);
+    // fprintf(stderr, "user_data.cc_count %d\n", cea708->user_data.cc_count);
+    // fprintf(stderr, "user_data.em_data %d\n", cea708->user_data.em_data);
 
     for (i = 0; i < (int)cea708->user_data.cc_count; ++i) {
         int valid;
@@ -257,7 +257,7 @@ void cea708_dump(cea708_t* cea708)
         if (valid && cc_type_ntsc_cc_field_1 == type) {
             eia608_dump(cc_data);
         } else {
-            fprintf(stderr, "user_data.cc_data[%d] cc_valid: %s, cc_type: %d, cc_data: %04x\n", i, cea708->user_data.cc_data[i].cc_valid ? "true" : "false", cea708->user_data.cc_data[i].cc_type, cea708->user_data.cc_data[i].cc_data);
+            // fprintf(stderr, "user_data.cc_data[%d] cc_valid: %s, cc_type: %d, cc_data: %04x\n", i, cea708->user_data.cc_data[i].cc_valid ? "true" : "false", cea708->user_data.cc_data[i].cc_type, cea708->user_data.cc_data[i].cc_data);
         }
     }
 }

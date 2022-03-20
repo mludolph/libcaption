@@ -456,5 +456,5 @@ void caption_frame_dump(caption_frame_t* frame)
 {
     utf8_char_t buff[CAPTION_FRAME_DUMP_BUF_SIZE];
     caption_frame_dump_buffer(frame, buff);
-    fprintf(stderr, "%s\n", buff);
+    // fprintf(stderr, "%s\n", buff);
 }

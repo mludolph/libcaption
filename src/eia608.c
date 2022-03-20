@@ -222,7 +222,7 @@ void eia608_dump(uint16_t cc_data)
     } else if (eia608_is_preamble(cc_data)) {
         text = "preamble";
         eia608_parse_preamble(cc_data, &row, &col, &style, &chan, &underline);
-        fprintf(stderr, "preamble %d %d %d %d %d\n", row, col, style, chan, underline);
+        // fprintf(stderr, "preamble %d %d %d %d %d\n", row, col, style, chan, underline);
 
     } else if (eia608_is_control(cc_data)) {
         switch (eia608_parse_control(cc_data, &chan)) {
@@ -311,5 +311,5 @@ void eia608_dump(uint16_t cc_data)
         text = "unhandled";
     }
 
-    fprintf(stderr, "cc %04X (%04X) '%s' '%s' (%s)\n", cc_data, eia608_parity_strip(cc_data), char1, char2, text);
+    // fprintf(stderr, "cc %04X (%04X) '%s' '%s' (%s)\n", cc_data, eia608_parity_strip(cc_data), char1, char2, text);
 }

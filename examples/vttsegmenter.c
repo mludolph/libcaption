@@ -60,7 +60,7 @@ void vtt_write_block(vtt_block_t* block, FILE* vttFile)
             hh1, mm1, ss1, ms1, hh2, mm2, ss2, ms2);
 
         if (block->cue_settings != NULL) {
-            printf(" %s", block->cue_settings);
+            fprintf(stderr, " %s", block->cue_settings);
         }
 
         fprintf(vttFile, "\r\n%s\r\n\r\n", vtt_block_data(block));

@@ -106,7 +106,7 @@ void test_all_utf8()
         // code2 = eia608_from_utf8 ( (const char*) &s[0], 1, &size);
         if (code1) {
             ++count;
-            printf("%d: string: '%s' code: %04X\n", count, &s[0], code1);
+            fprintf(stderr, "%d: string: '%s' code: %04X\n", count, &s[0], code1);
         }
     }
 
@@ -122,10 +122,10 @@ void print_bin(int n)
     int mask = 0x80;
 
     for (int mask = 0x80; mask; mask >>= 1) {
-        printf("%s", n & mask ? "1" : "0");
+        fprintf(stderr, "%s", n & mask ? "1" : "0");
     }
 
-    printf("\n");
+    fprintf(stderr, "\n");
 }
 
 void void_test_all_possible_code_words()
@@ -136,7 +136,7 @@ void void_test_all_possible_code_words()
         int count = eia608_cc_data_is_extended_data_service(code) + eia608_cc_data_is_basic_north_american_character(code) + eia608_cc_data_is_special_north_american_character(code) + eia608_cc_data_is_extended_western_european_character(code) + eia608_cc_data_is_nonwestern_norpak_character(code) + eia608_cc_data_is_row_preamble(code) + eia608_cc_data_is_control_command(code);
 
         if (1 < count) {
-            printf("code 0x%04X matched >1\n", code & 0x7F7F);
+            fprintf(stderr, "code 0x%04X matched >1\n", code & 0x7F7F);
         }
 
         // if (0 == count) {
@@ -148,10 +148,10 @@ void void_test_all_possible_code_words()
 void print_charmap()
 {
     for (int i = 0; i < EIA608_CHAR_COUNT; ++i) {
-        printf("%s", eia608_char_map[i]);
+        fprintf(stderr, "%s", eia608_char_map[i]);
     }
 
-    printf("\n");
+    fprintf(stderr, "\n");
 }
 
 void dance()
@@ -159,7 +159,7 @@ void dance()
     for (int i = 0; i < 100; ++i) {
         const char* l = 0 == rand() % 2 ? EIA608_CHAR_BOX_DRAWINGS_LIGHT_UP_AND_RIGHT : EIA608_CHAR_BOX_DRAWINGS_LIGHT_DOWN_AND_RIGHT;
         const char* r = 0 == rand() % 2 ? EIA608_CHAR_BOX_DRAWINGS_LIGHT_DOWN_AND_LEFT : EIA608_CHAR_BOX_DRAWINGS_LIGHT_UP_AND_LEFT;
-        printf("%s %s%s%s%s%s%s%s %s ", EIA608_CHAR_EIGHTH_NOTE, l, EIA608_CHAR_LEFT_PARENTHESIS, EIA608_CHAR_EM_DASH, EIA608_CHAR_LOW_LINE, EIA608_CHAR_EM_DASH,
+        fprintf(stderr, "%s %s%s%s%s%s%s%s %s ", EIA608_CHAR_EIGHTH_NOTE, l, EIA608_CHAR_LEFT_PARENTHESIS, EIA608_CHAR_EM_DASH, EIA608_CHAR_LOW_LINE, EIA608_CHAR_EM_DASH,
             EIA608_CHAR_RIGHT_PARENTHESIS, r, EIA608_CHAR_EIGHTH_NOTE);
     }
 }
@@ -190,7 +190,7 @@ int main(int argc, const char** arg)
             uint16_t code2 = eia608_control_command(cmd, cc);
 
             if (code1 != code2) {
-                printf(BIN " != " BIN " (0x%04x != 0x%04x) cc: %d\n", BIND(code1), BIND(code2), code1, code2, cc);
+                fprintf(stderr, BIN " != " BIN " (0x%04x != 0x%04x) cc: %d\n", BIND(code1), BIND(code2), code1, code2, cc);
             }
         } break;
 
@@ -210,7 +210,7 @@ int main(int argc, const char** arg)
                 if (code1 == code2) {
                     // printf ("%s " BIN " == " BIN " (0x%04x == 0x%04x)\n", &char1[0], BIND (code1), BIND (code2),code1,code2);
                 } else {
-                    printf("%s %s " BIN " != " BIN " (0x%04x != 0x%04x)\n", &char1[0], &char2[0], BIND(code1), BIND(code2), code1, code2);
+                    fprintf(stderr, "%s %s " BIN " != " BIN " (0x%04x != 0x%04x)\n", &char1[0], &char2[0], BIND(code1), BIND(code2), code1, code2);
                 }
             }
 
@@ -228,7 +228,7 @@ int main(int argc, const char** arg)
                 if (code1 == code2) {
                     // printf ("%s " BIN " == " BIN " (0x%04x == 0x%04x)\n", &char1[0], BIND (code1), BIND (code2),code1,code2);
                 } else {
-                    printf("%s " BIN " != " BIN " (0x%04x != 0x%04x)\n", &char1[0], BIND(code1), BIND(code2), code1, code2);
+                    fprintf(stderr, "%s " BIN " != " BIN " (0x%04x != 0x%04x)\n", &char1[0], BIND(code1), BIND(code2), code1, code2);
                 }
             }
         } break;

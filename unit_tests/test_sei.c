@@ -138,7 +138,7 @@ int main(int argc, const char** argv)
                 // printf ("screen:\n%s\n",&screen_buf[0]);
 
                 eia608_screen_json(&screen, &json_buf[0]);
-                printf("json:\n%s\n", &json_buf[0]);
+                fprintf(stderr, "json:\n%s\n", &json_buf[0]);
             }
         }
 

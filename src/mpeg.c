@@ -210,7 +210,7 @@ void sei_free(sei_t* sei)
 
 void sei_dump(sei_t* sei)
 {
-    fprintf(stderr, "SEI %p\n", sei);
+    // fprintf(stderr, "SEI %p\n", sei);
     sei_dump_messages(sei->head, sei->timestamp);
 }
 
@@ -223,19 +223,19 @@ void sei_dump_messages(sei_message_t* head, double timestamp)
     for (msg = head; msg; msg = sei_message_next(msg)) {
         uint8_t* data = sei_message_data(msg);
         size_t size = sei_message_size(msg);
-        fprintf(stderr, "-- Message %p\n-- Message Type: %d\n-- Message Size: %d\n", data, sei_message_type(msg), (int)size);
+        // fprintf(stderr, "-- Message %p\n-- Message Type: %d\n-- Message Size: %d\n", data, sei_message_type(msg), (int)size);
 
         while (size) {
-            fprintf(stderr, "%02X ", *data);
+            // fprintf(stderr, "%02X ", *data);
             ++data;
             --size;
         }
 
-        fprintf(stderr, "\n");
+        // fprintf(stderr, "\n");
 
         if (sei_type_user_data_registered_itu_t_t35 == sei_message_type(msg)) {
             if (LIBCAPTION_OK != cea708_parse_h262(sei_message_data(msg), sei_message_size(msg), &cea708)) {
-                fprintf(stderr, "cea708_parse error\n");
+                // fprintf(stderr, "cea708_parse error\n");
             } else {
                 cea708_dump(&cea708);
             }
@@ -675,7 +675,7 @@ size_t mpeg_bitstream_parse(mpeg_bitstream_t* packet, caption_frame_t* frame, co
 {
     if (MAX_NALU_SIZE <= packet->size) {
         packet->status = LIBCAPTION_ERROR;
-        // fprintf(stderr, "LIBCAPTION_ERROR\n");
+        // // fprintf(stderr, "LIBCAPTION_ERROR\n");
         return 0;
     }
 
