@@ -238,7 +238,7 @@ vtt_t* _vtt_parse(const utf8_char_t* data, size_t size, int srt_mode) {
             if (str_pts == -1) {
                 // Failed to parse timestamps
                 // fprintf(stderr, "Bad timestamp: %.*s\n", (int)line_length,
-                        data);
+                //        data);
                 return NULL;
             }
         } else {
@@ -346,7 +346,7 @@ static void _dump(vtt_t* vtt) {
         }
 
         // fprintf(stderr, "%02d:%02d:%02d.%03d --> %02d:%02d:%02d.%03d", hh1, mm1, ss1,
-               ms1, hh2, mm2, ss2, ms2);
+        //       ms1, hh2, mm2, ss2, ms2);
 
         if (block->cue_settings != NULL) {
             // fprintf(stderr, " %s", block->cue_settings);

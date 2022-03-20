@@ -239,8 +239,8 @@ void cea708_dump(cea708_t* cea708)
     // fprintf(stderr, "itu_t_t35_country_code_t %d\n", cea708->country);
     // fprintf(stderr, "itu_t_t35_provider_code_t %d\n", cea708->provider);
     // fprintf(stderr, "user_identifier %c%c%c%c\n",
-        (cea708->user_identifier >> 24) & 0xFF, (cea708->user_identifier >> 16) & 0xFF,
-        (cea708->user_identifier >> 8) & 0xFF, cea708->user_identifier & 0xFF);
+    //    (cea708->user_identifier >> 24) & 0xFF, (cea708->user_identifier >> 16) & 0xFF,
+    //    (cea708->user_identifier >> 8) & 0xFF, cea708->user_identifier & 0xFF);
     // fprintf(stderr, "user_data_type_code %d\n", cea708->user_data_type_code);
     // fprintf(stderr, "directv_user_data_length %d\n", cea708->directv_user_data_length);
     // fprintf(stderr, "user_data.process_em_data_flag %d\n", cea708->user_data.process_em_data_flag);

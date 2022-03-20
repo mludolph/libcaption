@@ -54,6 +54,6 @@ void srt_dump(srt_t* srt)
         vtt_crack_time(block->timestamp + block->duration, &hh2, &mm2, &ss2, &ms2);
 
         // fprintf(stderr, "%02d\r\n%d:%02d:%02d,%03d --> %02d:%02d:%02d,%03d\r\n%s\r\n", i,
-            hh1, mm1, ss1, ms1, hh2, mm2, ss2, ms2, vtt_block_data(block));
+        //    hh1, mm1, ss1, ms1, hh2, mm2, ss2, ms2, vtt_block_data(block));
     }
 }
